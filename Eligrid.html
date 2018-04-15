@@ -1,312 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang='ko'>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-        .map {
-            width: auto;
-            overflow-x: scroll;
-            overflow-y: scroll;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        td {
-            width: auto;
-            position: relative;
-        }
-
-        td:after {
-            content: '';
-            display: block;
-            margin-top: 0%;
-        }
-
-        td .square {
-            width: 48px;
-            height: 48px;
-            position: relative;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: peachpuff;
-        }
-
-        .row {
-            width: auto;
-            position: relative;
-        }
-
-        .row:after {
-            margin-top: 0%;
-        }
-
-        .column {
-            float: left;
-            width: 16px;
-            height: 16px;
-        }
-
-        td .square:hover {
-            background: burlywood;
-        }
-
-        .context-menu {
-            background: snow;
-            width: 200px;
-            height: auto;
-            box-shadow: 0 0 20px 0 #ccc;
-            position: absolute;
-            display: none;
-        }
-
-        .context-menu ul {
-            list-style: none;
-            padding: 5px 0px 5px 0px;
-        }
-
-        .context-menu ul li:not(.separator) {
-            padding: 10px 5px 10px 5px;
-            border-left: 4px solid transparent;
-            cursor: pointer;
-        }
-
-        .context-menu ul li:hover {
-            background: #eee;
-            border-left: 4px solid #666;
-        }
-
-        .posindicator {
-            background: whitesmoke;
-        }
-
-        .separator {
-            height: 1px;
-            background: #dedede;
-            margin: 2px 0px 2px 0px;
-        }
-
-        #line {
-            width: 200px;
-            height: 3px;
-            border: solid thin transparent;
-            position: absolute;
-            background-color: red;
-        }
-
-        #line:hover {
-            background-color: maroon;
-        }
-
-        arrow:not(.o) {
-            border: solid black;
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 3px;
-            position: relative;
-            top: -4px;
-            left: 2px;
-        }
-
-        .e {
-            transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
-        }
-
-        .ne {
-            transform: rotate(-90deg);
-            -webkit-transform: rotate(-90deg);
-        }
-
-        .n {
-            transform: rotate(-135deg);
-            -webkit-transform: rotate(-135deg);
-        }
-
-        .nw {
-            transform: rotate(-180deg);
-            -webkit-transform: rotate(-180deg);
-        }
-
-        .w {
-            transform: rotate(-225deg);
-            -webkit-transform: rotate(-225deg);
-        }
-
-        .sw {
-            transform: rotate(-270deg);
-            -webkit-transform: rotate(-270deg);
-        }
-
-        .s {
-            transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-        }
-
-        .se {
-            transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-        }
-    </style>
+    <title>EliMapper</title>
+    <!-- 순서중요 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link href="css/EliStyle.css" rel='stylesheet'>
 </head>
 
 <body>
-    <table class='map'></table>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">AAF Map Maker</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">대시보드</a>
+                    </li>
+                    <li>
+                        <a href="#">설정</a>
+                    </li>
+                    <li>
+                        <a href="#">정보</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="active">
+                        <a href="#">개요</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">죽던 ▽</a>
+                    </li>
+                    <li>
+                        <a href="#">죽던 1층</a>
+                    </li>
+                    <li>
+                        <a href="#">죽던 2층</a>
+                    </li>
+                    <li>
+                        <a href="#">신전</a>
+                    </li>
+                    <li>
+                        <a href="#">죽던 3층</a>
+                    </li>
+                    <li>
+                        <a href="#">죽던 4층</a>
+                    </li>
+                    <li>
+                        <a href="#">요새 1층</a>
+                    </li>
+                    <li>
+                        <a href="#">요새 2층</a>
+                    </li>
+                    <li>
+                        <a href="#">카타스트로피 1층</a>
+                    </li>
+                    <li>
+                        <a href="#">카타스트로피 2층</a>
+                    </li>
+                    <li>
+                        <a href="#">카타스트로피 3층</a>
+                    </li>
+                    <li>
+                        <a href="#">카타스트로피 4층</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">왜곡 ▽</a>
+                    </li>
+                    <li>
+                        <a href="#">태고</a>
+                    </li>
+                    <li>
+                        <a href="#">빙령</a>
+                    </li>
+                    <li>
+                        <a href="#">모순</a>
+                    </li>
+                    <li>
+                        <a href="#">감시자</a>
+                    </li>
+                    <li>
+                        <a href="#">혈룡</a>
+                    </li>
+                    <li>
+                        <a href="#">시류</a>
+                    </li>
+                    <li>
+                        <a href="#">샐리스타</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">노다쥐 ▽</a>
+                    </li>
+                    <li>
+                        <a href="#">동쪽 노다쥐 평원</a>
+                    </li>
+                    <li>
+                        <a href="#">광산 지층</a>
+                    </li>
+                    <li>
+                        <a href="#">광산 2층</a>
+                    </li>
+                    <li>
+                        <a href="#">광산 3층</a>
+                    </li>
+                    <li>
+                        <a href="#">광산 4층</a>
+                    </li>
+                    <li>
+                        <a href="#">광산 5층</a>
+                    </li>
+                    <li>
+                        <a href="#">마의 숲 북서부</a>
+                    </li>
+                    <li>
+                        <a href="#">마의 숲 중심부</a>
+                    </li>
+                    <li>
+                        <a href="#">마의 숲 남동부</a>
+                    </li>
+                    <li>
+                        <a href="#">하바나 사바나 북부</a>
+                    </li>
+                    <li>
+                        <a href="#">하바나 사바나 남부</a>
+                    </li>
+                    <li>
+                        <a href="#">즈르틀 사막 북동부</a>
+                    </li>
+                    <li>
+                        <a href="#">즈르틀 사막 북서부</a>
+                    </li>
+                    <li>
+                        <a href="#">즈르틀 사막 남동부</a>
+                    </li>
+                    <li>
+                        <a href="#">즈르틀 사막 남서부</a>
+                    </li>
+                    <li>
+                        <a href="#">광기의 협곡</a>
+                    </li>
+                    <li>
+                        <a href="#">앳스릴 분지</a>
+                    </li>
+                    <li>
+                        <a href="#">서쪽 노다쥐 평원</a>
+                    </li>
+                    <li>
+                        <a href="#">아쿠마니안 로드</a>
+                    </li>
+                    <li>
+                        <a href="#">아득한 다리</a>
+                    </li>
+                    <li>
+                        <a href="#">체르페스 캠프</a>
+                    </li>
+                    <li>
+                        <a href="#">체르페스 폐허 동쪽</a>
+                    </li>
+                    <li>
+                        <a href="#">제르페스 폐허 서쪽</a>
+                    </li>
+                    <li>
+                        <a href="#">체르페스 지하유적</a>
+                    </li>
+                    <li>
+                        <a href="#">안식의 정원</a>
+                    </li>
+                    <li>
+                        <a href="#">정령의 무덤 - 일리툼</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">쓰레기장 ▽</a>
+                    </li>
+                    <li>
+                        <a href="#">지하 쓰레기장</a>
+                    </li>
+                    <li>
+                        <a href="#">회랑 1층</a>
+                    </li>
+                    <li>
+                        <a href="#">회랑 2층</a>
+                    </li>
+                    <li>
+                        <a href="#">회랑 3층</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">신록의 탑 - 베렌 티로스</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">흐릿한 자의 전당 ▽</a>
+                    </li>
+                    <li>
+                        <a href="#">하급 구역</a>
+                    </li>
+                    <li>
+                        <a href="#">중급 구역</a>
+                    </li>
+                    <li>
+                        <a href="#">상급 구역</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">죽던 1층</h1>
+                <table class='map'></table>
+                <div class="row placeholders">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div id='contextMenu' class='context-menu'>
         <ul>
             <li class='posindicator'>좌표=
                 <span id='pos'></span>
             </li>
-            <li onclick='expandRowBefore(event)'>위에 행 추가</li>
-            <li onclick='expandRowAfter(event)'>아래에 행 추가</li>
-            <li onclick='expandColBefore(event)'>왼쪽에 열 추가</li>
-            <li onclick='expandColAfter(event)'>오른쪽에 열 추가</li>
+            <li onclick='expandRowTop(event)'>맨 위에 행 추가</li>
+            <li onclick='expandRowBottom(event)'>맨 아래에 행 추가</li>
+            <li onclick='expandColLeft(event)'>맨 왼쪽에 열 추가</li>
+            <li onclick='expandColRight(event)'>맨 오른쪽에 열 추가</li>
             <li class='separator'></li>
             <li>Hide this</li>
         </ul>
     </div>
-    <!-- <div id="line" style="top: 133.076px; left: 80.0434px; width: 255.947px; transform: rotate(-175.069deg);"></div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 컴파일된것(아래) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Elistyle.js"></script>
 </body>
-<script>
-    var map = document.querySelector('.map');
-    window.onclick = hideContextMenu;
-    window.onkeydown = listenKeys;
-    var contextMenu = document.querySelector('#contextMenu');
-    var arrowarray = [
-        ['nw', 'n', 'ne'],
-        ['w', 'o', 'e'],
-        ['sw', 's', 'se']
-    ];
-
-    Initialize();
-
-    function makeCell() {
-        var square = document.createElement('div');
-        square.className = 'square';
-        for (var i = 0; i < 3; i++) {
-            var row = document.createElement('div');
-            row.className = "row";
-            for (var j = 0; j < 3; j++) {
-                var box = document.createElement('div');
-                var arrow = document.createElement('arrow');
-                arrow.className = arrowarray[i][j];
-                box.appendChild(arrow);
-                box.className = "column";
-                row.appendChild(box);
-            }
-            square.appendChild(row);
-        }
-        square.oncontextmenu = function (event) {
-            return showContextMenu(event);
-        };
-        return square;
-    }
-
-    function Initialize() {
-        var map = document.querySelector('.map');
-        for (i = 0; i < 10; i++) {
-            var newrow = map.insertRow();
-            for (j = 0; j < 10; j++) {
-                var newcol = newrow.insertCell();
-                newcol.appendChild(makeCell());
-                newcol.oncontextmenu = function (event) {
-                    return showContextMenu(event);
-                };
-            }
-        }
-    }
-
-
-    //
-    function expandRowAfter(event) {
-        var str = event.path[1].querySelector('#pos').innerHTML;
-        var array = coordinateConversion(JSON.parse(str));
-        var ncols = map.rows[0].cells.length;
-        var newrow = map.insertRow(array[0]);
-        for (i = 0; i < ncols; i++) {
-            var newcol = newrow.insertCell();
-            newcol.appendChild(makeCell());
-            newcol.oncontextmenu = function (event) {
-                return showContextMenu(event);
-            };
-        }
-    }
-
-    function expandRowBefore(event) {
-        var str = event.path[1].querySelector('#pos').innerHTML;
-        var array = coordinateConversion(JSON.parse(str));
-        var ncols = map.rows[0].cells.length;
-        var newrow = map.insertRow(array[0] - 1);
-        for (i = 0; i < ncols; i++) {
-            var newcol = newrow.insertCell();
-            newcol.appendChild(makeCell());
-            newcol.oncontextmenu = function (event) {
-                return showContextMenu(event);
-            };
-        }
-    }
-
-    function expandColBefore(event) {
-        var str = event.path[1].querySelector('#pos').innerHTML;
-        var array = coordinateConversion(JSON.parse(str));
-        var nrows = map.rows.length;
-        for (i = 0; i < nrows; i++) {
-            var newcell = map.rows[i].insertCell(array[1] - 1);
-            newcell.appendChild(makeCell());
-            newcell.oncontextmenu = function (event) {
-                return showContextMenu(event);
-            };
-        }
-    }
-
-    function expandColAfter(event) {
-        var str = event.path[1].querySelector('#pos').innerHTML;
-        var array = coordinateConversion(JSON.parse(str));
-        var nrows = map.rows.length;
-        for (i = 0; i < nrows; i++) {
-            var newcell = map.rows[i].insertCell(array[1]);
-            newcell.appendChild(makeCell());
-            newcell.oncontextmenu = function (event) {
-                return showContextMenu(event);
-            };
-        }
-    }
-
-    function getPos(element) {
-        return [element.parentNode.rowIndex, element.cellIndex];
-    }
-
-
-
-    function showContextMenu(event) {
-        contextMenu.style.display = 'block';
-        contextMenu.style.left = event.clientX + 'px';
-        contextMenu.style.top = event.clientY + 'px';
-        var pos = coordinateConversion(getPos(event.path[3]));
-        document.querySelector('#pos').innerHTML = '[' + (pos[0] + 1) + ',' + (pos[1] + 1) + ']';
-        return false;
-    }
-
-    function coordinateConversion(pos) { //pos =[x,y]
-        var nrows = map.rows.length;
-        var ncols = map.rows[0].cells.length;
-        return [nrows - pos[0] - 1, pos[1]];
-    }
-
-    function hideContextMenu() {
-        contextMenu.style.display = 'none';
-    }
-
-    function listenKeys(event) {
-        var keyCode = event.which || event.KeyCode;
-        if (keyCode == 27) { // ESC키
-            hideContextMenu();
-        }
-    }
-
-    function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-</script>
 
 </html>

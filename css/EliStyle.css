@@ -1,0 +1,271 @@
+body {
+    padding-top: 50px;
+}
+
+
+/*
+* Global add-ons
+*/
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+* Top navigation
+* Hide default border to remove 1px line.
+*/
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+/*
+* Sidebar
+*/
+
+/* Hide for mobile, show later */
+
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+/* Sidebar navigation */
+
+.nav-sidebar {
+    margin-right: -21px;
+    /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar>li:not(.active)>a {
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.nav-sidebar>.active>a {
+
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar>.active>a,
+.nav-sidebar>.active>a:hover,
+.nav-sidebar>.active>a:focus {
+    background: rgb(228, 228, 228);
+}
+
+
+/*
+* Main content
+*/
+
+.main {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+
+/*
+* Placeholder dashboard ideas
+*/
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+
+
+.map {
+    width: auto;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+td {
+    width: auto;
+    position: relative;
+    padding: 0px;
+}
+
+td:after {
+    content: '';
+    display: block;
+    margin-top: 0%;
+}
+
+td .square {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: peachpuff;
+
+    border: solid thin black;
+    border-width: 0px 0px 0px 0px;
+}
+
+.row {
+    width: auto;
+    position: relative;
+}
+
+.row:after {
+    margin-top: 0%;
+}
+
+.column {
+    float: left;
+    width: 16px;
+    height: 16px;
+}
+
+td .square:hover {
+    background: burlywood;
+}
+
+.context-menu {
+    background: snow;
+    width: 200px;
+    height: auto;
+    box-shadow: 0 0 20px 0 #ccc;
+    position: absolute;
+    display: none;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 5px 0px 5px 0px;
+}
+
+.context-menu ul li:not(.separator) {
+    padding: 10px 5px 10px 5px;
+    border-left: 4px solid transparent;
+    cursor: pointer;
+}
+
+.context-menu ul li:hover {
+    background: #eee;
+    border-left: 4px solid #666;
+}
+
+.posindicator {
+    background: whitesmoke;
+}
+
+.separator {
+    height: 1px;
+    background: #dedede;
+    margin: 2px 0px 2px 0px;
+}
+
+#line {
+    width: 200px;
+    height: 3px;
+    border: solid thin transparent;
+    position: absolute;
+    background-color: red;
+}
+
+#line:hover {
+    background-color: maroon;
+}
+
+arrow:not(.o) {
+    background-color: red;
+    border: solid transparent;
+    border-width: 25px 0px 0px 0px;
+    display: inline-block;
+    padding: 0.5px;
+    position: relative;
+    left: 22px;
+    top: -5px;
+}
+
+.se {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.e {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+.ne {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.n {
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+}
+
+.nw {
+    transform: rotate(-225deg);
+    -webkit-transform: rotate(-225deg);
+}
+
+.w {
+    transform: rotate(-270deg);
+    -webkit-transform: rotate(-270deg);
+}
+
+.sw {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.s {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
