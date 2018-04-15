@@ -36,7 +36,11 @@
                     <li>
                         <a href="#">정보</a>
                     </li>
+                    <li>
+
+                    </li>
                 </ul>
+
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search...">
                 </form>
@@ -48,7 +52,55 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li class="active">
-                        <a href="#">개요</a>
+                        <a href="#">개요 ▽</a>
+                    </li>
+                    <li>
+                        <a>
+                            <b>장소명 :</b>
+                            <br>
+                            <span id='dispPlaceName'>갱도 통로</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <b>장소 설명 :</b>
+                            <br>
+                            <span id='dispPlaceDescription'>일자로 된 갱도 통로이다. 공기가 꽤나 탁한 느낌이 든다.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <b>가능한 방향 :</b>
+                            <br>
+                            <span id='dispnw'>↖북서</span>&nbsp;&nbsp;
+                            <span id='dispn' style="background-color:rgba(0,255,255,0.3);">북↑</span>&nbsp;
+                            <span id='dispne'>북동↗</span>
+                            <br>
+                            <span id='dispw' style="background-color:rgba(0,255,255,0.3);">←서</span>
+                            <span id='dispup'>△위</span>
+                            <span id='dispdn'>밑▽</span>
+                            <span id='dispe' style="background-color:rgba(0,255,255,0.3);">동→</span>
+                            <br>
+                            <span id='dispsw'>↙남서</span>&nbsp;&nbsp;
+                            <span id='disps'>남↓</span>&nbsp;
+                            <span id='dispse'>남동↘</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <b>특이 사항 :</b>
+                            <br>
+                            <span id='dispgather'>[발굴 지점]</span>
+                            <br>
+                            <span id='dispmine' style="background-color:rgba(0,255,255,0.3);">[광석 무더기]</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <b>근처 플레이어 :</b>
+                            <br>
+                            <span id='dispnearplayer'>리츄에이르 , 暗の守護者 (일레르니아 디 비안느) , 미미 , 시희 , 기가피니시 , 이제 3클 , 아르헨 D 하르젠 , 희기사</span>
+                        </a>
                     </li>
 
                     <li class="active">
@@ -229,15 +281,29 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h1 class="page-header">죽던 1층</h1>
-                <table class='map'></table>
-                <div class="row placeholders">
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">동쪽 노다쥐 평원</h1>
 
+            <div class="row placeholders">
+                <div align='left'>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" onclick='openfile()'>열기</button>
+                        <input id='fileimporter' type='file' style='display:none;' />
+                        <button type="button" class="btn btn-default" onclick="jsondownload('[2,3]')">저장</button>
+                    </div>
+                    <br>
+                    <div align='left' id='readdata'></div>
+                    <img id="readimage" src="#" alt="이미지" style='display:none;' />
                 </div>
+            </div>
+            <div class="row placeholders">
+                <table class='map'></table>
             </div>
         </div>
     </div>
+    </div>
+
     <div id='contextMenu' class='context-menu'>
         <ul>
             <li class='posindicator'>좌표=
